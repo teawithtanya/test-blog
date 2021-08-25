@@ -51,7 +51,7 @@ describe("check build output for a generic post", () => {
       assert.equal(select("link[rel='canonical']", "href"), POST_URL);
       assert.equal(
         select("meta[name='description']", "content"),
-        "This is a post on My Blog about agile frameworks."
+        "This is a post on Test Blog about setting up a static site."
       );
     });
 
@@ -120,8 +120,8 @@ describe("check build output for a generic post", () => {
     });
 
     it("should have a published date", () => {
-      expect(select("article time")).to.equal("01 May 2018");
-      expect(select("article time", "datetime")).to.equal("2018-05-01");
+      expect(select("article time")).to.equal("25 Aug 2021");
+      expect(select("article time", "datetime")).to.equal("2021-08-25");
     });
 
     it("should link to twitter with noopener", () => {
@@ -186,7 +186,7 @@ describe("check build output for a generic post", () => {
         const obj = JSON.parse(json);
         expect(obj.url).to.equal(POST_URL);
         expect(obj.description).to.equal(
-          "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster..."
+          "I have been wanting to test some static website generators for some time. I know of Hugo from a few years ago. Looks like there are a few..."
         );
         expect(obj.image.length).to.be.greaterThan(0);
         obj.image.forEach((url, index) => {
