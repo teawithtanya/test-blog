@@ -186,7 +186,7 @@ describe("check build output for a generic post", () => {
         const obj = JSON.parse(json);
         expect(obj.url).to.equal(POST_URL);
         expect(obj.description).to.equal(
-          "I have been wanting to test some static website generators for some time. I know of Hugo from a few years ago. Looks like there are a few..."
+          "Testing Eleventy # I have been wanting to test some static website generators for some time. I know of Hugo from a few years ago. Looks like..."
         );
         expect(obj.image.length).to.be.greaterThan(0);
         obj.image.forEach((url, index) => {
