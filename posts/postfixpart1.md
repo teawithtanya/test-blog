@@ -76,14 +76,14 @@ Updated lookup table.
 $ sudo postmap /etc/postfix/virtual
 ```
 
-# SRS and SPF
+## SRS and SPF
 
 While the setup until now should be sufficient to forward emails sent to receipient1@example.com to Gmail, email forwarding breaks SPF. Gmail won't accept these emails coming from sender1@hotmail.com since mail.example.com is not an authorized server to send emails on behalf of hotmail.com (obviously). <a href="http://www.open-spf.org/SRS/">SRS</a> is the fix. SRS rewrites the sender in a way that works with SPF.
 
 The following steps use <a href="https://github.com/roehling/postsrsd">PostSRSd</a> which implements SRS with Postfix. Since it is not available (at this time) in Ubuntu repos, it needs to be built from source.
 
 ```bash
-# Setup and download source code from GitHub
+# Setup and downloads source code from GitHub
 $ sudo apt-get install unzip cmake
 
 $ cd /tmp
@@ -91,7 +91,7 @@ $ curl -L -o postsrsd.zip \
     https://github.com/roehling/postsrsd/archive/master.zip
 $ unzip postsrsd.zip
 
-# Build and install.
+# Builds and installs.
 $ cd postsrsd-master
 $ mkdir build
 $ cd build
@@ -99,10 +99,10 @@ $ cmake -DCMAKE_INSTALL_PREFIX=/usr ../
 $ make
 $ sudo make install
 
-# Start SRS
+# Starts SRS
 $ sudo service postsrsd start
 
-# Add SRS daemon to startup (Debian/Ubuntu):
+# Adds SRS daemon to startup (Debian/Ubuntu):
 $ sudo systemctl enable postsrsd.service
 ```
 
@@ -117,30 +117,30 @@ recipient_canonical_classes= envelope_recipient,header_recipient
 ```
 
 ```bash
-# Restart Postfix
+# Restarts Postfix
 $ sudo postfix reload
 ```
 
-# Sanity checks
+## Sanity checks
 
 ```bash
-# Check for errors
+# Checks for errors
 $ postconf 1> /dev/null
 
-# Print config for later diffing
+# Prints config for later diffing
 $ postconf > postconf-$(date "+%F")
 ```
 
-# Hardening
+## Hardening
 
 ```bash
-# Disable VRFY (Verify)
+# Disables VRFY (Verify)
 $ sudo postconf -e disable_vrfy_command=yes
 $ sudo postfix reload
 ```
 
-# Take a break
+## Take a break
 
 Most common use case of incoming email forwarding set up is done. Continue reading about my outgoing email setup.
 
-<a href="{{ '/posts/thirdpost/' | url }}">Adventures with Postfix: Part 2</a>
+<a href="{{ '/posts/postfixpart2/' | url }}">Adventures with Postfix: Part 2</a>
