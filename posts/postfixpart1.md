@@ -6,6 +6,7 @@ tags:
   - postfix
 layout: layouts/post.njk
 ---
+
 I wanted to setup an email forwarding / relay server on a custom domain and found these guides helpful.
 
 <a href="https://jichu4n.com/posts/custom-domain-e-mails-with-postfix-and-gmail-the-missing-tutorial/">Custom Domain E-mails With Postfix and Gmail: The Missing Tutorial</a>
