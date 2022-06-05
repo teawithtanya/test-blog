@@ -33,7 +33,7 @@ We had a great vacation in Hawaii and here are some photos.
 
 ## Photo Data
 
-I had the following data in `data/sets/2010/hawaii-trip.yml`. I wanted to keep the data structured as well as organized by year.
+I had the following data in `data/sets/2022/hawaii-trip.yml`. I wanted to keep the data structured as well as organized by year.
 
 ```yml
 title: "Hawaii Trip 2022"
@@ -107,9 +107,12 @@ Th 'gallery' `partial` is used as-is from [caressofsteel's hugo-story](https://g
 
 Some references I used for my setup
 
++ [Hugo: Insert data into content with a shortcode](https://input.sh/hugo-data-into-content-with-a-shortcode/)
++ [Mixing content and data in Hugo](https://michele.io/content-data-hugo/)
++ [Hugo and Data: The Basics](https://www.thenewdynamic.com/article/hugo-data/manipulation-and-logic-the-basics/)
 + [Front Matter](https://gohugo.io/content-management/front-matter/)
 + <https://stackoverflow.com/questions/71031296/hugo-change-layout>
 + [Hugo's Lookup Order](https://gohugo.io/templates/lookup-order/)
 + https://stackoverflow.com/questions/67482975/hugo-using-index-with-complex-key-to-get-data
 + [index function](https://gohugo.io/functions/index-function/)
-+ [Hugo: Insert data into content with a shortcode](https://input.sh/hugo-data-into-content-with-a-shortcode/)
++ <https://discourse.gohugo.io/t/string-variable-concatenation-to-build-path-for-partial/701>
