@@ -1,7 +1,7 @@
 ---
 title: Convert csv data to yaml using Powershell
 description: While migrating some photo gallery data from my old website to Hugo, I wanted to convert some exported csv data to yaml for using in Hugo content.
-date: 2022-06-04
+date: 2022-06-05
 tags:
   - powershell
   - csv
@@ -26,8 +26,8 @@ Import-Module powershell-yaml
 Import csv data. My data didn't have a header and had some fields I didn't care about.
 
 ```powershell
-$header = 'setId', 'setTitle', 'setKey', 'setUrl', 'setLink', 'lastUpdated', 'lookup', 'photoId', 'photoPath', 'photoDate', 'photoTitle', 'photoDescription', 'isHidden'
-$data = Import-Csv -Path .\redmond.csv -Header $header
+$header = 'C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'photoPath', 'photoDate', 'photoTitle', 'photoDescription', 'C13'
+$data = Import-Csv -Path .\hawaii.csv -Header $header
 ```
 
 Create a Hash Table and append only the relevant data from csv data.
@@ -35,7 +35,7 @@ Create a Hash Table and append only the relevant data from csv data.
 ```powershell
 $pictures = @()
 foreach ($row in $data) {$pictures += @{ 'title' = $row.photoTitle; 'description' = $row.photoDescription; 'image' = $row.photoPath; 'thumb' = $row.photoPath;}}
-$yml = @{ 'title' = "Hawaii"; 'style' = "style1 medium lightbox onscroll-fade-in"; 'content' = "<em>Dec 2010. Redmond, WA, USA.</em>"; 'pictures' = $pictures}
+$yml = @{ 'title' = "Hawaii"; 'style' = "style1 medium lightbox onscroll-fade-in"; 'content' = "<em>Dec 2021. Oahu, HI, USA.</em>"; 'pictures' = $pictures}
 ```
 
 Convert to Yaml and output to a file

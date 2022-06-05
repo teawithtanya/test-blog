@@ -3,7 +3,7 @@ title: Passing data to a Hugo partial template
 description: While working on setting up a photo gallery template for Hugo posts, I wanted to use structured data separated from content and pass this data to a template.
 date: 2022-06-04
 tags:
-  - eleventy
+  - hugo
 layout: layouts/post.njk
 templateEngineOverride: md
 ---
